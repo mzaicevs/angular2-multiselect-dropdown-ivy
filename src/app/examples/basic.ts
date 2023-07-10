@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
-import { DropdownSettings } from 'projects/angular2-multiselect-dropdown-lib/src/lib/multiselect.interface';
+import { DropdownSettings } from 'projects/angular2-multiselect-dropdown-ivy-lib/src/lib/multiselect.interface';
 @Component({
     templateUrl: './views/view.html'
 })
@@ -10,7 +10,7 @@ export class BasicExample implements OnInit {
     selectedItems = [];
     settings: DropdownSettings = {};
 
-    constructor(public seotitle: Title, public meta: Meta) { 
+    constructor(public seotitle: Title, public meta: Meta) {
         this.seotitle.setTitle('Basic example');
         this.meta.addTags([
             {name: 'description', content:'Basic example of angular multiselect drodown.'}

@@ -1,9 +1,9 @@
 {
-  "name":"angular2-multiselect-dropdown",
-  "version":"5.0.4",
+  "name":"angular2-multiselect-dropdown-ivy",
+  "version":"1.0.0",
   "license": "MIT",
   "author": "Pradeep Terli",
-  "description": "Angular Multiselct dropdown component library for Angular version 11, 10, 9,8,6,4 ",
+  "description": "Angular Multiselect dropdown component library for Angular version 12+",
   "keywords": [
     "angular 2 multiselect dropdown",
     "angular 4 multiselect dropdown",

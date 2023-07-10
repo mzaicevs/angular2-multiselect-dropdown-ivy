@@ -45,4 +45,4 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-/projects/angular2-multiselect-dropdown-lib/node_modules/
+/projects/angular2-multiselect-dropdown-ivy-lib/node_modules/

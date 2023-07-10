@@ -20,9 +20,9 @@
       "dom"
     ],
     "paths": {
-      "angular2-multiselect-dropdown-lib": [
-        "dist/angular2-multiselect-dropdown-lib/angular2-multiselect-dropdown-lib",
-        "dist/angular2-multiselect-dropdown-lib"
+      "angular2-multiselect-dropdown-ivy-lib": [
+        "dist/angular2-multiselect-dropdown-ivy-lib/angular2-multiselect-dropdown-ivy-lib",
+        "dist/angular2-multiselect-dropdown-ivy-lib"
       ]
     },
     "useDefineForClassFields": false

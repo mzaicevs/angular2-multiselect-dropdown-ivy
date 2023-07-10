@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, '../../coverage/angular2-multiselect-dropdown-lib'),
+      dir: require('path').join(__dirname, '../../coverage/angular2-multiselect-dropdown-ivy-lib'),
       subdir: '.',
       reporters: [
         { type: 'html' },

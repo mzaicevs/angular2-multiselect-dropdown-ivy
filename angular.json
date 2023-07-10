@@ -32,7 +32,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "projects/angular2-multiselect-dropdown-lib/themes/default.theme.scss"
+              "projects/angular2-multiselect-dropdown-ivy-lib/themes/default.theme.scss"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.js"
@@ -146,21 +146,21 @@
         }
       }
     },
-    "angular2-multiselect-dropdown-lib": {
+    "angular2-multiselect-dropdown-ivy-lib": {
       "projectType": "library",
-      "root": "projects/angular2-multiselect-dropdown-lib",
-      "sourceRoot": "projects/angular2-multiselect-dropdown-lib/src",
+      "root": "projects/angular2-multiselect-dropdown-ivy-lib",
+      "sourceRoot": "projects/angular2-multiselect-dropdown-ivy-lib/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/angular2-multiselect-dropdown-lib/tsconfig.lib.json",
-            "project": "projects/angular2-multiselect-dropdown-lib/ng-package.json"
+            "tsConfig": "projects/angular2-multiselect-dropdown-ivy-lib/tsconfig.lib.json",
+            "project": "projects/angular2-multiselect-dropdown-ivy-lib/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/angular2-multiselect-dropdown-lib/tsconfig.lib.prod.json"
+              "tsConfig": "projects/angular2-multiselect-dropdown-ivy-lib/tsconfig.lib.prod.json"
             },
             "development": {}
           },
@@ -169,17 +169,17 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/angular2-multiselect-dropdown-lib/src/test.ts",
-            "tsConfig": "projects/angular2-multiselect-dropdown-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/angular2-multiselect-dropdown-lib/karma.conf.js"
+            "main": "projects/angular2-multiselect-dropdown-ivy-lib/src/test.ts",
+            "tsConfig": "projects/angular2-multiselect-dropdown-ivy-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/angular2-multiselect-dropdown-ivy-lib/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/angular2-multiselect-dropdown-lib/tsconfig.lib.json",
-              "projects/angular2-multiselect-dropdown-lib/tsconfig.spec.json"
+              "projects/angular2-multiselect-dropdown-ivy-lib/tsconfig.lib.json",
+              "projects/angular2-multiselect-dropdown-ivy-lib/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
