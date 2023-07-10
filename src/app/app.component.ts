@@ -58,12 +58,15 @@ export class AppComponent implements OnInit {
 
   constructor(public updates: SwUpdate, private checkForUpdateService: CheckForUpdateService,
      private router: Router, private activatedRoute: ActivatedRoute){
-    this.updates.available.subscribe((event) => {
+    this.updates.versionUpdates
+      .pipe(
+        filter(value => value.type === 'VERSION_READY')
+      )
+      .subscribe(() => {
       this.updateToLatest();
     });
-    this.updates.activated.subscribe(event => {
-      console.log('old version was', event.previous);
-      console.log('new version is', event.current);
+    this.updates.activateUpdate().then(event => {
+      console.log('update status: ', event);
     });
     console.log(this.router.config)
     this.links = this.router.config;
@@ -104,16 +107,16 @@ export class AppComponent implements OnInit {
                           {"id":2,"itemName":"Singapore"},
                           {"id":3,"itemName":"Australia"},
                           {"id":4,"itemName":"Canada"},
-                          {"id":5,"itemName":"South Korea"},    
-                          {"id":6,"itemName":"Brazil"}                      
+                          {"id":5,"itemName":"South Korea"},
+                          {"id":6,"itemName":"Brazil"}
                         ];
-    
+
     this.basicExampleSelectedItems = [
                           {"id":1,"itemName":"India"},
                           {"id":2,"itemName":"Singapore"},
                           {"id":3,"itemName":"Australia"},
                           {"id":4,"itemName":"Canada"}];
-    this.basicExampleSettings = { 
+    this.basicExampleSettings = {
                               text:"Select Countries",
                               selectAllText:'Select All',
                               unSelectAllText:'UnSelect All',
@@ -127,20 +130,20 @@ export class AppComponent implements OnInit {
                           {"id":4,"itemName":"Canada"},
                           {"id":5,"itemName":"South Korea"}];
 
-    
-    this.dropdownSettings3 = { singleSelection: false, 
+
+    this.dropdownSettings3 = { singleSelection: false,
                               text:"Select Countries",
                               selectAllText:'Select All',
                               unSelectAllText:'UnSelect All',
                               enableSearchFilter: true,
                               badgeShowLimit: 3
-                            };   
+                            };
     this.limitSelectionSelectedItems = [
                           {"id":1,"itemName":"India"},
                           {"id":2,"itemName":"Singapore"},
                           {"id":3,"itemName":"Australia"},
                           {"id":4,"itemName":"Canada"}];
-    this.limitSelectionSettings = { 
+    this.limitSelectionSettings = {
                               text:"Select Countries",
                               selectAllText:'Select All',
                               unSelectAllText:'UnSelect All',
@@ -153,7 +156,7 @@ export class AppComponent implements OnInit {
                           {"id":2,"itemName":"Singapore"},
                           {"id":3,"itemName":"Australia"},
                           {"id":4,"itemName":"Canada"}];
-    this.disableModeSettings = { 
+    this.disableModeSettings = {
                               text:"Select Countries",
                               selectAllText:'Select All',
                               unSelectAllText:'UnSelect All',
@@ -170,13 +173,13 @@ export class AppComponent implements OnInit {
                           {"id":4,"itemName":"Canada"},
                           {"id":5,"itemName":"South Korea"}
                         ];
-    
+
     this.placeholderExampleSelectedItems = [
                           {"id":1,"itemName":"India"},
                           {"id":2,"itemName":"Singapore"},
                           {"id":3,"itemName":"Australia"},
                           {"id":4,"itemName":"Canada"}];
-    this.placeholderExampleSettings = { 
+    this.placeholderExampleSettings = {
                               text:"Select Countries",
                               selectAllText:'Select All',
                               unSelectAllText:'UnSelect All',
@@ -191,41 +194,41 @@ export class AppComponent implements OnInit {
                           {"id":4,"itemName":"Canada"},
                           {"id":5,"itemName":"South Korea"}
                         ];
-    
+
     this.resetExampleSelectedItems = [
                           {"id":1,"itemName":"India"},
                           {"id":2,"itemName":"Singapore"},
                           {"id":3,"itemName":"Australia"},
                           {"id":4,"itemName":"Canada"}];
-    this.resetExampleSettings = { 
+    this.resetExampleSettings = {
                               text:"Select Countries",
                               selectAllText:'Select All',
                               unSelectAllText:'UnSelect All',
                               enableSearchFilter: false,
                               classes:"myclass custom-class"
-                            };      
+                            };
     this.groupByExampleList = [
                           {"id":1,"itemName":"India","category":"asia"},
                           {"id":2,"itemName":"Singapore","category":"asia pacific"},
                           {"id":3,"itemName":"Germany","category":"Europe"},
                           {"id":4,"itemName":"France","category":"Europe"},
-                          {"id":5,"itemName":"South Korea","category":"asia"},    
-                          {"id":6,"itemName":"Sweden","category":"Europe"}                      
+                          {"id":5,"itemName":"South Korea","category":"asia"},
+                          {"id":6,"itemName":"Sweden","category":"Europe"}
                         ];
-    
+
     this.groupByExampleSelectedItems = [
                           {"id":1,"itemName":"India"},
                           {"id":2,"itemName":"Singapore"},
                           {"id":3,"itemName":"Germany"},
                           {"id":4,"itemName":"France"}];
-    this.groupByExampleSettings = { 
+    this.groupByExampleSettings = {
                               text:"Select Countries",
                               selectAllText:'Select All',
                               unSelectAllText:'UnSelect All',
                               enableSearchFilter: true,
                               classes:"myclass custom-class",
                               groupBy: "category"
-                            }; 
+                            };
 
   this.groupByExampleSettings = {
 singleSelection: false,
@@ -236,23 +239,23 @@ searchPlaceholderText: 'Search Fields',
 enableSearchFilter: true,
 badgeShowLimit: 5,
 groupBy:"category"
-};         
+};
 
 this.templatingExampleList = [
                           {"id":1,"itemName":"India","capital":"Delhi","image":"http://www.sciencekids.co.nz/images/pictures/flags96/India.jpg"},
                           {"id":2,"itemName":"Singapore", "capital":"Singapore","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Singapore.jpg"},
                           {"id":3,"itemName":"United Kingdom", "capital":"London","image":"http://www.sciencekids.co.nz/images/pictures/flags96/United_Kingdom.jpg"},
                           {"id":4,"itemName":"Canada","capital":"Ottawa","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Canada.jpg"},
-                          {"id":5,"itemName":"South Korea","capital":"Seoul","image":"http://www.sciencekids.co.nz/images/pictures/flags96/South_Korea.jpg"},    
-                          {"id":6,"itemName":"Brazil","capital":"Brasilia","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg"}                      
+                          {"id":5,"itemName":"South Korea","capital":"Seoul","image":"http://www.sciencekids.co.nz/images/pictures/flags96/South_Korea.jpg"},
+                          {"id":6,"itemName":"Brazil","capital":"Brasilia","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg"}
                         ];
-    
+
     this.templatingExampleSelectedItems = [
                           {"id":1,"itemName":"India"},
                           {"id":2,"itemName":"Singapore"},
                           {"id":3,"itemName":"United Kingdom"},
                           {"id":4,"itemName":"Canada"}];
-    this.templatingExampleSettings = { 
+    this.templatingExampleSettings = {
                               text:"Select Countries",
                               selectAllText:'Select All',
                               unSelectAllText:'UnSelect All',

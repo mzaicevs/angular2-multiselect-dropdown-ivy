@@ -189,5 +189,7 @@
       }
     }
   },
-  "defaultProject": "angular2-multiselect-dropdown"
+  "cli": {
+    "analytics": false
+  }
 }
